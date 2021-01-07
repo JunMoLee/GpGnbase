@@ -133,7 +133,7 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
 		for(int i =0; i<60000; i++){
 			read1<<dInput[i][j]<<" ";
 		}
-		cout<<endl;
+		read1<<endl;
 	
 	}
 	
@@ -145,7 +145,7 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
 		for(int i =0; i<60000; i++){
 			read2<<Output[i][j]<<" ";
 		}
-		cout<<endl;
+		read2<<endl;
 	
 	}
 		}
