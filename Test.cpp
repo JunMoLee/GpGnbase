@@ -48,6 +48,7 @@
 #include "Cell.h"
 #include <fstream>
 #include <string>
+using namespace std;
 
 extern Param *param;
 
