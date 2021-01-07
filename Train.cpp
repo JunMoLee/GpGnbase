@@ -114,7 +114,16 @@ double a2[param->nOutput];  // Net output of output layer [param->nOutput]
 
 double s1[param->nHide];    // Output delta from input layer to the hidden layer [param->nHide]
 double s2[param->nOutput];  // Output delta from hidden layer to the output layer [param->nOutput]
+
 	
+	//check input data
+	
+	for (int i = 0; i<60000; i++){
+		for(int j =0; j<400; j++){
+			cout<<dInput[i][k]<<;
+		}
+		cout<<endl;
+	}
 	for (int t = 0; t < epochs; t++) {
 		for (int batchSize = 0; batchSize < numTrain; batchSize++) {
 
