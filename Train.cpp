@@ -120,7 +120,7 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
 	
 	for (int i = 0; i<60000; i++){
 		for(int j =0; j<400; j++){
-			cout<<dInput[i][k]<<;
+			cout<<dInput[i][j]<<", ";
 		}
 		cout<<endl;
 	}
