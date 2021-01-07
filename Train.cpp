@@ -41,6 +41,8 @@
 #include <vector>
 #include <random>
 #include <string>
+#include <fstream>
+
 #include "formula.h"
 #include "Param.h"
 #include "Array.h"
@@ -115,17 +117,32 @@ double a2[param->nOutput];  // Net output of output layer [param->nOutput]
 double s1[param->nHide];    // Output delta from input layer to the hidden layer [param->nHide]
 double s2[param->nOutput];  // Output delta from hidden layer to the output layer [param->nOutput]
 
+	ofstream read;
+	string filename="traininput.txt";
+	read.open(filename,std::ios_base::app);
 	
 	//check input data
-	/*
-	for (int i = 0; i<60000; i++){
-		for(int j =0; j<400; j++){
-			cout<<dInput[i][j]<<" ";
+	
+	for (int j = 0; j<400; j++){
+		for(int i =0; i<60000; i++){
+			read<<dInput[i][j]<<" ";
 		}
 		cout<<endl;
 	
 	}
-	*/
+	
+	ofstream read;
+	string filename="trainlabel.txt";
+	read.open(filename,std::ios_base::app);
+	
+	for (int j = 0; j<1; j++){
+		for(int i =0; i<60000; i++){
+			read<<Output[i][j]<<" ";
+		}
+		cout<<endl;
+	
+	}
+	
 	
 	for (int t = 0; t < epochs; t++) {
 		for (int batchSize = 0; batchSize < numTrain; batchSize++) {
