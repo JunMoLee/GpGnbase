@@ -119,13 +119,13 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
 
 	ofstream read1;
 	string filename1="traininput.txt";
-	read.open(filename1,std::ios_base::app);
+	read1.open(filename1,std::ios_base::app);
 	
 	//check input data
 	
 	for (int j = 0; j<400; j++){
 		for(int i =0; i<60000; i++){
-			read<<dInput[i][j]<<" ";
+			read1<<dInput[i][j]<<" ";
 		}
 		cout<<endl;
 	
@@ -133,11 +133,11 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
 	
 	ofstream read2;
 	string filename2="trainlabel.txt";
-	read.open(filename2,std::ios_base::app);
+	read2.open(filename2,std::ios_base::app);
 	
 	for (int j = 0; j<1; j++){
 		for(int i =0; i<60000; i++){
-			read<<Output[i][j]<<" ";
+			read2<<Output[i][j]<<" ";
 		}
 		cout<<endl;
 	
