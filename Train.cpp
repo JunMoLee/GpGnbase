@@ -117,9 +117,9 @@ double a2[param->nOutput];  // Net output of output layer [param->nOutput]
 double s1[param->nHide];    // Output delta from input layer to the hidden layer [param->nHide]
 double s2[param->nOutput];  // Output delta from hidden layer to the output layer [param->nOutput]
 
-	ofstream read;
-	string filename="traininput.txt";
-	read.open(filename,std::ios_base::app);
+	ofstream read1;
+	string filename1="traininput.txt";
+	read.open(filename1,std::ios_base::app);
 	
 	//check input data
 	
@@ -131,9 +131,9 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
 	
 	}
 	
-	ofstream read;
-	string filename="trainlabel.txt";
-	read.open(filename,std::ios_base::app);
+	ofstream read2;
+	string filename2="trainlabel.txt";
+	read.open(filename2,std::ios_base::app);
 	
 	for (int j = 0; j<1; j++){
 		for(int i =0; i<60000; i++){
