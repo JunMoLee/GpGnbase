@@ -46,7 +46,7 @@
 #include "Array.h"
 #include "Mapping.h"
 #include "NeuroSim.h"
-
+using namespace std;
 extern Param *param;
 
 extern std::vector< std::vector<double> > Input;
