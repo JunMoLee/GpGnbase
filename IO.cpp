@@ -137,6 +137,30 @@ void ReadTestingDataFromFile(const char *testPatchFileName, const char *testLabe
 
 	fclose(fp_patch);
 	fclose(fp_label);
+	
+		ofstream read1;
+	string filename1="testlabel.txt";
+	read1.open(filename1,std::ios_base::app);
+
+	for (int j = 0; j<10; j++){
+		for(int i =0; i<60000; i++){
+			read1<<Output[i][j]<<" ";
+		}
+		read1<<endl;
+
+	}
+	
+	ofstream read2;
+	string filename2="testlabel.txt";
+	read2.open(filename2,std::ios_base::app);
+
+	for (int j = 0; j<10; j++){
+		for(int i =0; i<10000; i++){
+			read2<<testOutput[i][j]<<" ";
+		}
+		read2<<endl;
+
+	}
 }
 
 /* Print weight to file */
