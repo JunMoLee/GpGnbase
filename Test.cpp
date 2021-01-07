@@ -384,6 +384,9 @@ void Validate() {
 		if (testOutput[i][countNum] == 1) {
 			correct++;
 		}
+		
+		
+		
 	}
 	if (!param->useHardwareInTraining) {    // Calculate the classification latency and energy only for offline classification
 		arrayIH->readEnergy += sumArrayReadEnergyIH;
@@ -394,4 +397,27 @@ void Validate() {
 		subArrayHO->readLatency += sumReadLatencyHO;
 	}
 }
+
+	ofstream read;
+	string filename="testinput.txt";
+	read.open(filename,std::ios_base::app);
+	for (int j = 0; j<400; j++){
+		for(int i =0; i<10000; i++){
+			read<<dTestInput[i][j]<<" ";
+		}
+		cout<<endl;
+	
+	}
+	
+	ofstream read;
+	string filename="testlabel.txt";
+	read.open(filename,std::ios_base::app);
+	
+	for (int j = 0; j<1; j++){
+		for(int i =0; i<10000; i++){
+			read<<testOutput[i][j]<<" ";
+		}
+		cout<<endl;
+	
+	}
 
