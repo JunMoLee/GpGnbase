@@ -407,7 +407,7 @@ void Validate() {
 		for(int i =0; i<10000; i++){
 			read1<<dTestInput[i][j]<<" ";
 		}
-		cout<<endl;
+		read<<endl;
 	
 	}
 	
@@ -419,7 +419,7 @@ void Validate() {
 		for(int i =0; i<10000; i++){
 			read2<<testOutput[i][j]<<" ";
 		}
-		cout<<endl;
+		read<<endl;
 	
 	}
 }
