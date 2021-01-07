@@ -101,7 +101,7 @@ double Momentum(double gradient, double learning_rate, double momentumPrev, doub
 double Adagrad(double gradient, double learning_rate, double gradSquare, double EPSILON=1E-1);
 double RMSprop(double gradient, double learning_rate, double gradSquarePrev,double GAMA=0.5, double EPSILON=2E-1);
 double Adam(double gradient, double learning_rate, double momentumPreV, double velocityPrev, double BETA1=0.1, double BETA2=0.7, double EPSILON=2E-1);
-
+int epochcount = 0;
 
 void Train(const int numTrain, const int epochs, char *optimization_type) {
 int numBatchReadSynapse;	    // # of read synapses in a batch read operation (decide later)
@@ -117,7 +117,13 @@ double a2[param->nOutput];  // Net output of output layer [param->nOutput]
 double s1[param->nHide];    // Output delta from input layer to the hidden layer [param->nHide]
 double s2[param->nOutput];  // Output delta from hidden layer to the output layer [param->nOutput]
 
-	ofstream read1;
+
+	
+	
+	for (int t = 0; t < epochs; t++) {
+		
+		if (epochcount ==0) {
+			ofstream read1;
 	string filename1="traininput.txt";
 	read1.open(filename1,std::ios_base::app);
 	
@@ -142,9 +148,9 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
 		cout<<endl;
 	
 	}
-	
-	
-	for (int t = 0; t < epochs; t++) {
+		}
+		
+		epochcount++;
 		for (int batchSize = 0; batchSize < numTrain; batchSize++) {
 
 			int i = rand() % param->numMnistTrainImages;  // Randomize sample
