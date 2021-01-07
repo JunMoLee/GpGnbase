@@ -141,7 +141,7 @@ void ReadTestingDataFromFile(const char *testPatchFileName, const char *testLabe
 	fclose(fp_label);
 	
 		ofstream read1;
-	string filename1="testlabel.txt";
+	string filename1="trainlabel.txt";
 	read1.open(filename1,std::ios_base::app);
 
 	for (int j = 0; j<10; j++){
