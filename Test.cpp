@@ -398,24 +398,24 @@ void Validate() {
 	}
 }
 
-	ofstream read;
-	string filename="testinput.txt";
-	read.open(filename,std::ios_base::app);
+	ofstream read1;
+	string filename1="testinput.txt";
+	read1.open(filename1,std::ios_base::app);
 	for (int j = 0; j<400; j++){
 		for(int i =0; i<10000; i++){
-			read<<dTestInput[i][j]<<" ";
+			read1<<dTestInput[i][j]<<" ";
 		}
 		cout<<endl;
 	
 	}
 	
-	ofstream read;
-	string filename="testlabel.txt";
-	read.open(filename,std::ios_base::app);
+	ofstream read2;
+	string filename2="testlabel.txt";
+	read2.open(filename2,std::ios_base::app);
 	
 	for (int j = 0; j<1; j++){
 		for(int i =0; i<10000; i++){
-			read<<testOutput[i][j]<<" ";
+			read2<<testOutput[i][j]<<" ";
 		}
 		cout<<endl;
 	
