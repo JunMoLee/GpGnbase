@@ -69,6 +69,13 @@ extern std::vector<std::vector<double> >  totalDeltaWeight2_abs;
 
 /* Read trainging data from file */
 void ReadTrainingDataFromFile(const char *trainPatchFileName, const char *trainLabelFileName) {
+	
+			ofstream read1;
+	string filename1="trainlabel.txt";
+	read1.open(filename1,std::ios_base::app);
+	
+
+	
 	FILE *fp_patch = fopen(trainPatchFileName, "r");
 	FILE *fp_label = fopen(trainLabelFileName, "r");
 
@@ -97,8 +104,10 @@ void ReadTrainingDataFromFile(const char *trainPatchFileName, const char *trainL
 	j = 0;
 	int k = 0;
 	while (fscanf(fp_label, "%d", &k) != EOF){
+		read1<<k<<" ";
 		Output[i][k] = 1;
 		i += 1;
+		
 	}
 	fclose(fp_patch);
 	fclose(fp_label);
@@ -106,6 +115,11 @@ void ReadTrainingDataFromFile(const char *trainPatchFileName, const char *trainL
 
 /* Read testing data from file */
 void ReadTestingDataFromFile(const char *testPatchFileName, const char *testLabelFileName) {
+	
+			ofstream read2;
+	string filename2="testlabel.txt";
+	read2.open(filename2,std::ios_base::app);
+	
 	FILE *fp_patch = fopen(testPatchFileName, "r");
 	FILE *fp_label = fopen(testLabelFileName, "r");
 
@@ -133,36 +147,22 @@ void ReadTestingDataFromFile(const char *testPatchFileName, const char *testLabe
 	j = 0;
 	int k = 0;
 	while (fscanf(fp_label, "%d", &k) != EOF){
+		read2<<k<<" ";
 		testOutput[i][k] = 1;
 		i += 1;
+		
 	}
 
 	fclose(fp_patch);
 	fclose(fp_label);
 	
-		ofstream read1;
-	string filename1="trainlabel.txt";
-	read1.open(filename1,std::ios_base::app);
 
-	for (int j = 0; j<10; j++){
-		for(int i =0; i<60000; i++){
-			read1<<Output[i][j]<<" ";
-		}
-		read1<<endl;
 
-	}
+
 	
-	ofstream read2;
-	string filename2="testlabel.txt";
-	read2.open(filename2,std::ios_base::app);
 
-	for (int j = 0; j<10; j++){
-		for(int i =0; i<10000; i++){
-			read2<<testOutput[i][j]<<" ";
-		}
-		read2<<endl;
 
-	}
+
 }
 
 /* Print weight to file */
