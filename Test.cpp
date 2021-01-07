@@ -46,6 +46,8 @@
 #include "Mapping.h"
 #include "NeuroSim.h"
 #include "Cell.h"
+#include <fstream>
+#include <string>
 
 extern Param *param;
 
@@ -396,9 +398,8 @@ void Validate() {
 		subArrayIH->readLatency += sumReadLatencyIH;
 		subArrayHO->readLatency += sumReadLatencyHO;
 	}
-}
-
-	ofstream read1;
+	
+		ofstream read1;
 	string filename1="testinput.txt";
 	read1.open(filename1,std::ios_base::app);
 	for (int j = 0; j<400; j++){
@@ -420,4 +421,7 @@ void Validate() {
 		cout<<endl;
 	
 	}
+}
+
+
 
