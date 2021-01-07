@@ -400,28 +400,7 @@ void Validate() {
 		subArrayHO->readLatency += sumReadLatencyHO;
 	}
 	
-		ofstream read1;
-	string filename1="testinput.txt";
-	read1.open(filename1,std::ios_base::app);
-	for (int j = 0; j<400; j++){
-		for(int i =0; i<10000; i++){
-			read1<<dTestInput[i][j]<<" ";
-		}
-		read1<<endl;
-	
-	}
-	
-	ofstream read2;
-	string filename2="testlabel.txt";
-	read2.open(filename2,std::ios_base::app);
-	
-	for (int j = 0; j<1; j++){
-		for(int i =0; i<10000; i++){
-			read2<<testOutput[i][j]<<" ";
-		}
-		read2<<endl;
-	
-	}
+
 }
 
 
