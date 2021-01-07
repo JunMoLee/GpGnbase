@@ -315,8 +315,8 @@ RealDevice::RealDevice(int x, int y) {
 	/* Device-to-device weight update variation */
 	NL_LTP = 2.4;	// LTP nonlinearity
 	NL_LTD = -4.88;	// LTD nonlinearity
-	NL_LTP_Gp = 1;
-	NL_LTP_Gn = 1;
+	NL_LTP_Gp = 2;
+	NL_LTP_Gn = 2;
 	sigmaDtoD = 0;	// Sigma of device-to-device weight update vairation in gaussian distribution
 	gaussian_dist2 = new std::normal_distribution<double>(0, sigmaDtoD);	// Set up mean and stddev for device-to-device weight update vairation
 	paramALTP = getParamA(NL_LTP + (*gaussian_dist2)(localGen)) * maxNumLevelLTP;	// Parameter A for LTP nonlinearity
@@ -325,7 +325,7 @@ RealDevice::RealDevice(int x, int y) {
 	paramAGn= getParamA(NL_LTP_Gn + (*gaussian_dist2)(localGen)) * maxNumLevelLTP;
 	/* Cycle-to-cycle weight update variation */
 	sigmaCtoC = 0.015* (maxConductance - minConductance);	// Sigma of cycle-to-cycle weight update vairation: defined as the percentage of conductance range
-	//sigmaCtoC = 0;
+	igmaCtoC = 0;
 	gaussian_dist3 = new std::normal_distribution<double>(0, sigmaCtoC);    // Set up mean and stddev for cycle-to-cycle weight update vairation
 
 	/* Conductance range variation */
