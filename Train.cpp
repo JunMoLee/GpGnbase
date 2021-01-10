@@ -70,7 +70,7 @@ extern std::vector< std::vector<double> >  momentumPrev1;
 extern std::vector< std::vector<double> >  momentumPrev2;
 extern std::vector< std::vector<double> >  gradSum1;
 extern std::vector< std::vector<double> >  gradSum2;
-vector< std::vector<double> >  dw2(100, std::vector<double>(400,0));
+vector< std::vector<double> >  dw2(10, std::vector<double>(100,0));
 
 extern Technology techIH;
 extern Technology techHO;
@@ -1066,8 +1066,8 @@ dw2[jj][k] = gradt;
 
 			}
 			
-			for ( int mm = 0 ; mm < 100 ; mm++){
-				for(int nn = 0 ; nn<400; nn++){
+			for ( int mm = 0 ; mm < 10 ; mm++){
+				for(int nn = 0 ; nn<100; nn++){
 					cout<<"dw2["<<mm<<"]"<<"["<<nn<<"]"<<dw2[mm][nn]<<endl;
 				}
 			}
