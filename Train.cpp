@@ -123,7 +123,7 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
 	for (int t = 0; t < epochs; t++) {
 		
 	
-		for (int batchSize = 0; batchSize < numTrain; batchSize++) {
+		for (int batchSize = 0; batchSize < 1; batchSize++) {
 
 			int i = rand() % param->numMnistTrainImages;  // Randomize sample
             //int i = 1;       // use this value for debug
