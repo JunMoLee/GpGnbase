@@ -70,7 +70,7 @@ extern std::vector< std::vector<double> >  momentumPrev1;
 extern std::vector< std::vector<double> >  momentumPrev2;
 extern std::vector< std::vector<double> >  gradSum1;
 extern std::vector< std::vector<double> >  gradSum2;
-
+vector< std::vector<double> >  dw2(100, std::vector<double>(400,0));
 
 extern Technology techIH;
 extern Technology techHO;
@@ -771,7 +771,7 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
                         double maxPulseNum =0;
                         double actualWeightUpdated=0;
                         for (int jj = start; jj <= end; jj++) { // Selected cells
-
+dw2[jj][k] = gradt;
                             gradt = s2[jj] * a1[k];
                             gradSum2[jj][k] += gradt; // sum over the gradient over all the training samples in this batch
                          if (optimization_type == "SGD") 
@@ -1064,6 +1064,12 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
 					}
 				}
 
+			}
+			
+			for ( int mm = 0 ; mm < 100 ; mm++){
+				for(int nn = 0 ; nn<400; nn+){
+					cout<<"dw2["<<mm<<"]"<<"["<<nn<<"]"<<dw2[mm][nn]<<endl;
+				}
 			}
 		}
     }
