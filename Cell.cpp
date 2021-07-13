@@ -259,12 +259,12 @@ void IdealDevice::Write(double deltaWeightNormalized, double weight, double minW
 /* Real Device */
 RealDevice::RealDevice(int x, int y) {
 	this->x = x; this->y = y;	// Cell location: x (column) and y (row) start from index 0
-	maxConductance = 0;		// Maximum cell conductance (S)
+	maxConductance = 10;		// Maximum cell conductance (S)
 	minConductance = 0;	// Minimum cell conductance (S)
 	//maxConductance = 1/4.71e6;
 	//minConductance = maxConductance / 19.6;
-	avgMaxConductance = 1; // Average maximum cell conductance (S)
-	avgMinConductance = -1; // Average minimum cell conductance (S)
+	avgMaxConductance = 10; // Average maximum cell conductance (S)
+	avgMinConductance = 0; // Average minimum cell conductance (S)
 	conductanceGp = minConductance;
 	conductanceGn = minConductance;
 	conductanceRef = 0;
