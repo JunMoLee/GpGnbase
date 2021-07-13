@@ -259,7 +259,7 @@ void IdealDevice::Write(double deltaWeightNormalized, double weight, double minW
 /* Real Device */
 RealDevice::RealDevice(int x, int y) {
 	this->x = x; this->y = y;	// Cell location: x (column) and y (row) start from index 0
-	maxConductance = 1;		// Maximum cell conductance (S)
+	maxConductance = 0;		// Maximum cell conductance (S)
 	minConductance = 0;	// Minimum cell conductance (S)
 	//maxConductance = 1/4.71e6;
 	//minConductance = maxConductance / 19.6;
@@ -277,8 +277,8 @@ RealDevice::RealDevice(int x, int y) {
 	writePulseWidthLTP = 300e-6;	// Write pulse width (s) for LTP or weight increase
 	writePulseWidthLTD = 300e-6;	// Write pulse width (s) for LTD or weight decrease
 	writeEnergy = 0;	// Dynamic variable for calculation of write energy (J)
-	maxNumLevelLTP = 128;	// Maximum number of conductance states during LTP or weight increase
-	maxNumLevelLTD = 128;	// Maximum number of conductance states during LTD or weight decrease
+	maxNumLevelLTP = 100;	// Maximum number of conductance states during LTP or weight increase
+	maxNumLevelLTD = 100;	// Maximum number of conductance states during LTD or weight decrease
 	numPulse = 0;	// Number of write pulses used in the most recent write operation (dynamic variable)
 	cmosAccess = true;	// True: Pseudo-crossbar (1T1R), false: cross-point
     FeFET = false;		// True: FeFET structure (Pseudo-crossbar only, should be cmosAccess=1)
@@ -315,8 +315,8 @@ RealDevice::RealDevice(int x, int y) {
 	/* Device-to-device weight update variation */
 	NL_LTP = 2.4;	// LTP nonlinearity
 	NL_LTD = -4.88;	// LTD nonlinearity
-	NL_LTP_Gp = 2;
-	NL_LTP_Gn = 2;
+	NL_LTP_Gp = 1;
+	NL_LTP_Gn = 1;
 	sigmaDtoD = 0;	// Sigma of device-to-device weight update vairation in gaussian distribution
 	gaussian_dist2 = new std::normal_distribution<double>(0, sigmaDtoD);	// Set up mean and stddev for device-to-device weight update vairation
 	paramALTP = getParamA(NL_LTP + (*gaussian_dist2)(localGen)) * maxNumLevelLTP;	// Parameter A for LTP nonlinearity
