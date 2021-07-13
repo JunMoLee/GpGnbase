@@ -1066,11 +1066,7 @@ dw2[jj][k] = gradt;
 
 			}
 			
-			for ( int mm = 0 ; mm < 10 ; mm++){
-				for(int nn = 0 ; nn<100; nn++){
-					cout<<"dw2["<<mm<<"]"<<"["<<nn<<"]"<<dw2[mm][nn]<<endl;
-				}
-			}
+
 		}
     }
 }
